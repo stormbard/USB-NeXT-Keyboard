@@ -43,7 +43,7 @@ uint8_t misopin;
 #define NEXT_KB_SHIFT_RIGHT 0x4000
 
 // special command for setting LEDs
-void setLEDs(bool leftLED, bool rightLED) {
+void setsss(bool leftLED, bool rightLED) {
   digitalWrite(KEYBOARDOUT, LOW);
   delayMicroseconds(TIMING *9);
   digitalWrite(KEYBOARDOUT, HIGH);  
@@ -98,7 +98,7 @@ void setup() {
   // set up pin directions
   pinMode(KEYBOARDOUT, OUTPUT);
   pinMode(KEYBOARDIN, INPUT);
-  pinMode(LED, OUTPUT);
+  //pinMode(LED, OUTPUT);
   
   misoportreg = portInputRegister(digitalPinToPort(KEYBOARDIN));
   misopin = digitalPinToBitMask(KEYBOARDIN);
@@ -140,7 +140,7 @@ uint32_t getresponse() {
 }
 
 void loop() {
-  digitalWrite(LED, LOW);
+  //digitalWrite(LED, LOW);
   delay(20);
   uint32_t resp;
   query();
@@ -150,7 +150,7 @@ void loop() {
   if (resp == NEXT_KMBUS_IDLE) return;
   
   // turn on the LED when we get real resposes!
-  digitalWrite(LED, HIGH);
+  //digitalWrite(LED, HIGH);
 
   // keycode is the lower 7 bits
   uint8_t keycode = resp & 0xFF;
