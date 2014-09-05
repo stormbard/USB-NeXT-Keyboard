@@ -43,7 +43,7 @@ uint8_t misopin;
 #define NEXT_KB_SHIFT_RIGHT 0x4000
 
 // special command for setting LEDs
-void setsss(bool leftLED, bool rightLED) {
+void setLEDs(bool leftLED, bool rightLED) {
   digitalWrite(KEYBOARDOUT, LOW);
   delayMicroseconds(TIMING *9);
   digitalWrite(KEYBOARDOUT, HIGH);  
